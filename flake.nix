@@ -4,20 +4,12 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     rust-overlay.url = "github:oxalica/rust-overlay";
-
-    # Git handling tools
-    berger = {
-      url = "github:RustyNova016/berger";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = "rust-overlay";
-    };
   };
 
   outputs =
     {
       nixpkgs,
       rust-overlay,
-      berger,
       ...
     }:
     let
@@ -79,7 +71,6 @@
                 cargo-msrv
                 cargo-audit
                 cargo-machete
-                berger.packages."${pkgs.stdenv.hostPlatform.system}".default
 
                 (rust-bin.stable.latest.default.override {
                   extensions = [
