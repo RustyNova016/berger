@@ -38,6 +38,10 @@
               pkgs.cargo-msrv
               pkgs.cargo-machete
               pkgs.cargo-nextest
+              pkgs.openssl
+              pkgs.aws-lc
+              pkgs.zstd
+              pkgs.libgit2
             ];
 
             nativeBuildInputs = [
